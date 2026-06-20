@@ -1,0 +1,6 @@
+﻿apiVersion: v2
+name: reputation-service
+description: Helm chart for reputation-service
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

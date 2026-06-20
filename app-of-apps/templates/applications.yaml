@@ -1,0 +1,30 @@
+﻿{{- range $name, $app := .Values.applications }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: medicojobs-{{ $name }}
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: {{ ternary "-1" "0" (eq $name "platform") | quote }}
+  labels:
+    app.kubernetes.io/name: {{ $name }}
+    app.kubernetes.io/part-of: medicojobs-platform
+spec:
+  project: {{ $.Values.project | quote }}
+  source:
+    repoURL: {{ $.Values.repoURL | quote }}
+    targetRevision: {{ $.Values.targetRevision | quote }}
+    path: {{ $app.path | quote }}
+    helm:
+      releaseName: {{ $name | quote }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ $app.namespace | quote }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+{{- end }}

@@ -1,0 +1,25 @@
+﻿{{- if .Values.pdb.apiGateway.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: api-gateway
+  namespace: {{ .Values.namespace.name | quote }}
+spec:
+  minAvailable: {{ .Values.pdb.apiGateway.minAvailable }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: api-gateway
+---
+{{- end }}
+{{- if .Values.pdb.frontend.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontend
+  namespace: {{ .Values.namespace.name | quote }}
+spec:
+  minAvailable: {{ .Values.pdb.frontend.minAvailable }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: frontend
+{{- end }}

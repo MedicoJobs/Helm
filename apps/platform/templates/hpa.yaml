@@ -1,0 +1,43 @@
+﻿{{- if .Values.hpa.apiGateway.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: api-gateway
+  namespace: {{ .Values.namespace.name | quote }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: api-gateway
+  minReplicas: {{ .Values.hpa.apiGateway.minReplicas }}
+  maxReplicas: {{ .Values.hpa.apiGateway.maxReplicas }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.hpa.apiGateway.averageUtilization }}
+---
+{{- end }}
+{{- if .Values.hpa.frontend.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: frontend
+  namespace: {{ .Values.namespace.name | quote }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend
+  minReplicas: {{ .Values.hpa.frontend.minReplicas }}
+  maxReplicas: {{ .Values.hpa.frontend.maxReplicas }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.hpa.frontend.averageUtilization }}
+{{- end }}

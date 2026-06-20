@@ -1,0 +1,38 @@
+﻿repoURL: https://github.com/MedicoJobs/medicojobs-helm.git
+targetRevision: main
+project: default
+applications:
+  platform:
+    path: apps/platform
+    namespace: medicojobs-prod
+  api-gateway:
+    path: apps/api-gateway
+    namespace: medicojobs-prod
+  frontend:
+    path: apps/frontend
+    namespace: medicojobs-prod
+  user-service:
+    path: apps/user-service
+    namespace: medicojobs-prod
+  job-service:
+    path: apps/job-service
+    namespace: medicojobs-prod
+  matching-service:
+    path: apps/matching-service
+    namespace: medicojobs-prod
+  availability-service:
+    path: apps/availability-service
+    namespace: medicojobs-prod
+  location-service:
+    path: apps/location-service
+    namespace: medicojobs-prod
+  reputation-service:
+    path: apps/reputation-service
+    namespace: medicojobs-prod
+  course-service:
+    path: apps/course-service
+    namespace: medicojobs-prod
+  resume-service:
+    path: apps/resume-service
+    namespace: medicojobs-prod
+

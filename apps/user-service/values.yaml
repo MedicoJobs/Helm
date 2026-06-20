@@ -1,0 +1,45 @@
+﻿name: user-service
+namespace: medicojobs-prod
+replicaCount: 1
+revisionHistoryLimit: 5
+
+image:
+  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-user-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+strategy:
+  maxUnavailable: 1
+  maxSurge: 0
+
+service:
+  type: ClusterIP
+  port: 5001
+  targetPort: 5001
+
+envFrom:
+  enabled: true
+  configMapName: medicojobs-config
+  secretName: medicojobs-secrets
+
+probes:
+  readiness:
+    enabled: true
+    type: tcp
+    path: /health
+    initialDelaySeconds: 15
+    periodSeconds: 10
+  liveness:
+    enabled: true
+    type: tcp
+    path: /health
+    initialDelaySeconds: 45
+    periodSeconds: 20
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 750m
+    memory: 768Mi

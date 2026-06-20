@@ -1,0 +1,17 @@
+﻿apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.namespace.name | quote }}
+  labels:
+    app.kubernetes.io/name: medicojobs
+    app.kubernetes.io/part-of: medicojobs-platform
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medicojobs-config
+  namespace: {{ .Values.namespace.name | quote }}
+data:
+{{- range $key, $value := .Values.config }}
+  {{ $key }}: {{ $value | quote }}
+{{- end }}
