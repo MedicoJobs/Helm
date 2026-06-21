@@ -1,27 +1,22 @@
-﻿name: frontend
+name: frontend
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-frontend
-  tag: latest
+  tag: f6fddcfce3c3e4ac1877836bee2f4afcb370e7cc
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 80
   targetPort: 80
-
 envFrom:
   enabled: false
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 probes:
   readiness:
     enabled: true
@@ -35,7 +30,6 @@ probes:
     path: /health
     initialDelaySeconds: 30
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 100m
