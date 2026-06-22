@@ -14,9 +14,16 @@ service:
   port: 5001
   targetPort: 5001
 
+serviceAccount:
+  create: true
+  name: user-service
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::168614391879:role/medicojobs-cluster-workload-irsa
+
 env:
   PORT: "5001"
   CORS_ORIGINS: "http://medicojobs.online,http://www.medicojobs.online"
+  DYNAMODB_USERS_TABLE: "medicojobs-users"
 
 envFrom:
   enabled: true
