@@ -1,37 +1,30 @@
-﻿name: availability-service
+name: availability-service
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-availability-service
-  tag: latest
+  tag: b877b57e1c1431691f8e9974f05195bfaf0fe15f
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 5004
   targetPort: 5004
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 env:
   PORT: "5004"
   DYNAMODB_AVAILABILITY_TABLE: medicojobs-availability
-
 serviceAccount:
   create: true
   name: availability-service
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::168614391879:role/medicojobs-cluster-workload-irsa
-
 probes:
   readiness:
     enabled: true
@@ -45,7 +38,6 @@ probes:
     path: /health
     initialDelaySeconds: null
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 75m
