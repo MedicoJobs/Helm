@@ -1,27 +1,22 @@
-﻿name: api-gateway
+name: api-gateway
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-api-gateway
-  tag: latest
+  tag: 52e905531c6834540e98c009529ded84f5649fa6
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 5000
   targetPort: 5000
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 probes:
   readiness:
     enabled: true
@@ -35,7 +30,6 @@ probes:
     path: /health
     initialDelaySeconds: 30
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 100m
