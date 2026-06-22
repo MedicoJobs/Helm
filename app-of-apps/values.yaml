@@ -1,4 +1,4 @@
-﻿repoURL: https://github.com/MedicoJobs/medicojobs-helm.git
+repoURL: https://github.com/MedicoJobs/Helm.git
 targetRevision: main
 project: default
 applications:
