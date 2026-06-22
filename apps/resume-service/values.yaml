@@ -1,27 +1,22 @@
-﻿name: resume-service
+name: resume-service
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-resume-service
-  tag: latest
+  tag: da9cc15d416b14546c901d5e4bd410a6c7800fa9
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 5008
   targetPort: 5008
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 probes:
   readiness:
     enabled: true
@@ -35,7 +30,6 @@ probes:
     path: /health
     initialDelaySeconds: 60
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 250m
