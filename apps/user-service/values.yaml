@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-user-service
-  tag: f51b15758ab1082161e4ff1eba12034d0d54eaf7
+  tag: f753051d81085e8e984c49c1434be96d3696b45d
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
@@ -13,18 +13,15 @@ service:
   type: ClusterIP
   port: 5001
   targetPort: 5001
-
 serviceAccount:
   create: true
   name: user-service
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::168614391879:role/medicojobs-cluster-workload-irsa
-
 env:
   PORT: "5001"
   CORS_ORIGINS: "http://medicojobs.online,http://www.medicojobs.online"
   DYNAMODB_USERS_TABLE: "medicojobs-users"
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
