@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-course-service
-  tag: 7338a274fbc1e36b86a58c3faa38bd68064c975a
+  tag: 2ea2f36c771b5d30783b63b7472a121640a34752
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
