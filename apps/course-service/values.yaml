@@ -1,38 +1,31 @@
-﻿name: course-service
+name: course-service
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-course-service
-  tag: latest
+  tag: a2645e70b47df62e4216428a4757a05d5dab2423
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 5007
   targetPort: 5007
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 env:
   PORT: "5007"
   AWS_S3_BUCKET: medicojobs-cluster-uploads-168614391879
   S3_COURSE_VIDEOS_PREFIX: course-videos
-
 serviceAccount:
   create: true
   name: course-service
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::168614391879:role/medicojobs-cluster-workload-irsa
-
 probes:
   readiness:
     enabled: true
@@ -46,7 +39,6 @@ probes:
     path: /health
     initialDelaySeconds: null
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 100m
