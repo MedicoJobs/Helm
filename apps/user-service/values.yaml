@@ -22,6 +22,9 @@ env:
   PORT: "5001"
   CORS_ORIGINS: "http://medicojobs.online,http://www.medicojobs.online"
   DYNAMODB_USERS_TABLE: "medicojobs-users"
+  AWS_S3_BUCKET: "medicojobs-cluster-uploads-168614391879"
+  S3_PROFILE_IMAGES_PREFIX: "profile-images"
+  S3_RESUMES_PREFIX: "resume-pdfs"
 envFrom:
   enabled: true
   configMapName: medicojobs-config
