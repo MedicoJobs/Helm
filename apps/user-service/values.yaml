@@ -16,6 +16,7 @@ service:
 
 env:
   PORT: "5001"
+  CORS_ORIGINS: "http://medicojobs.online,http://www.medicojobs.online"
 
 envFrom:
   enabled: true
