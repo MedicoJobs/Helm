@@ -39,6 +39,9 @@ ingress:
     - path: /availability
       serviceName: api-gateway
       servicePort: 5000
+    - path: /courses
+      serviceName: api-gateway
+      servicePort: 5000
     - path: /socket.io
       serviceName: api-gateway
       servicePort: 5000
