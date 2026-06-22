@@ -24,12 +24,22 @@ spec:
         app.kubernetes.io/name: {{ .Values.name }}
         app.kubernetes.io/part-of: medicojobs-platform
     spec:
+{{- if .Values.serviceAccount.create }}
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+{{- end }}
       containers:
         - name: {{ .Values.name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.targetPort }}
+{{- if .Values.env }}
+          env:
+{{- range $name, $value := .Values.env }}
+            - name: {{ $name }}
+              value: {{ $value | quote }}
+{{- end }}
+{{- end }}
 {{- if .Values.envFrom.enabled }}
           envFrom:
             - configMapRef:
