@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-availability-service
-  tag: b877b57e1c1431691f8e9974f05195bfaf0fe15f
+  tag: be3ac9bdcfb67e8f661fea04aa3b9be18155a218
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
