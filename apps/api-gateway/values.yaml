@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-api-gateway
-  tag: 6b1443773d94c09d65ec109e651bade2431963e1
+  tag: d190af4848afd3e4b4b6b816be47b5785c41eef0
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
