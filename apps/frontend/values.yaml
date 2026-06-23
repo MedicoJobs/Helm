@@ -3,8 +3,8 @@ namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
 image:
-  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-location-service
-  tag: 0d11a4cb3383eb219b05b6808c744dc446dd3d6d
+  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-frontend
+  tag: latest
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
