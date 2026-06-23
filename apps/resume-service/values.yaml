@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-resume-service
-  tag: d1297f11b474a5d03d458bd19b42ad41eb387c33
+  tag: 7d2ca6587de6d8d2f8d5b2fc79fe782fe67a00bf
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
