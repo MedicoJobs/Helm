@@ -1,27 +1,22 @@
-﻿name: matching-service
+name: matching-service
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-matching-service
-  tag: latest
+  tag: d7010cefbee5ab043bace645190ab23fa0980e63
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 5003
   targetPort: 5003
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 probes:
   readiness:
     enabled: true
@@ -35,7 +30,6 @@ probes:
     path: /health
     initialDelaySeconds: null
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 75m
