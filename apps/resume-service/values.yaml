@@ -23,7 +23,7 @@ env:
   ENABLE_LLM: "true"
   ENABLE_OPENSEARCH_INDEXING: "false"
   PERSIST_RESUME_ANALYSIS: "false"
-  AWS_S3_BUCKET: "medicojobs-cluster-uploads-168614391879"
+  S3_BUCKET: "medicojobs-cluster-uploads-168614391879"
   DATABASE_URL: "postgresql+asyncpg://postgres:postgres@localhost:5432/medicojobs_resume"
 envFrom:
   enabled: true
