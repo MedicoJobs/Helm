@@ -13,6 +13,8 @@ service:
   type: ClusterIP
   port: 5002
   targetPort: 5002
+env:
+  PORT: "5002"
 envFrom:
   enabled: true
   configMapName: medicojobs-config
