@@ -3,8 +3,8 @@ namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
 image:
-  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-reputation-service
-  tag: 8c5d516d1716dba97b0be729e30972dae67bec05
+  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-matching-service
+  tag: 25414808bbd9c5ca791e1a8a03599f55b1ea6029
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
