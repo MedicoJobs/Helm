@@ -13,6 +13,11 @@ service:
   type: ClusterIP
   port: 5002
   targetPort: 5002
+serviceAccount:
+  create: true
+  name: job-service
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::168614391879:role/medicojobs-cluster-workload-irsa
 env:
   PORT: "5002"
 envFrom:
