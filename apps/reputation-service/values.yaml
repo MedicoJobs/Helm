@@ -1,27 +1,22 @@
-﻿name: reputation-service
+name: reputation-service
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-reputation-service
-  tag: latest
+  tag: 00504bbfb6ad7bf0e5c3efa9711c0de5f36df966
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 5006
   targetPort: 5006
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 probes:
   readiness:
     enabled: true
@@ -35,7 +30,6 @@ probes:
     path: /health
     initialDelaySeconds: null
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 75m
