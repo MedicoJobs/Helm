@@ -1,27 +1,22 @@
-﻿name: location-service
+name: location-service
 namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
-
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-location-service
-  tag: latest
+  tag: 488f23bdd66b33e54786381ceac8d3f36ad39fac
   pullPolicy: IfNotPresent
-
 strategy:
   maxUnavailable: 1
   maxSurge: 0
-
 service:
   type: ClusterIP
   port: 5005
   targetPort: 5005
-
 envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 probes:
   readiness:
     enabled: true
@@ -35,7 +30,6 @@ probes:
     path: /health
     initialDelaySeconds: null
     periodSeconds: 20
-
 resources:
   requests:
     cpu: 75m
