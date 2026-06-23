@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-frontend
-  tag: latest
+  tag: 724971d82d788c01421b5513d8609c1bb57ce034
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
