@@ -17,6 +17,9 @@ envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
+
+env:
+  PORT: "5003"
 probes:
   readiness:
     enabled: true
