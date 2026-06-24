@@ -19,6 +19,7 @@ envFrom:
   secretName: medicojobs-secrets
 env:
   PORT: "5006"
+  NODE_OPTIONS: "--unhandled-rejections=warn"
 probes:
   readiness:
     enabled: true
