@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-reputation-service
-  tag: 00504bbfb6ad7bf0e5c3efa9711c0de5f36df966
+  tag: 58b25e2009ccbb8d682d2d657a443e0a666078ae
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
@@ -17,7 +17,6 @@ envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 env:
   PORT: "5006"
 probes:
