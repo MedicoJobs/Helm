@@ -4,7 +4,7 @@ replicaCount: 1
 revisionHistoryLimit: 5
 image:
   repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-reputation-service
-  tag: 58b25e2009ccbb8d682d2d657a443e0a666078ae
+  tag: cc7db7695a3fe3048cdee7907c650929f24a6ce4
   pullPolicy: IfNotPresent
 strategy:
   maxUnavailable: 1
