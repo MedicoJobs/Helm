@@ -1,0 +1,31 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: aws-secretsmanager
+spec:
+  provider:
+    aws:
+      service: SecretsManager
+      region: ap-south-1
+      auth:
+        jwt:
+          serviceAccountRef:
+            name: external-secrets
+            namespace: external-secrets
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: medicojobs-secrets-sync
+  namespace: medicojobs-prod
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: aws-secretsmanager
+    kind: ClusterSecretStore
+  target:
+    name: medicojobs-secrets
+    creationPolicy: Owner
+  dataFrom:
+  - extract:
+      key: "medicojobs-cluster/shared-secrets"
