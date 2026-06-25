@@ -3,7 +3,7 @@ namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
 image:
-  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-matching-service
+  repository: 194418667391.dkr.ecr.ap-south-1.amazonaws.com/medicojob-matching-service
   tag: d7010cefbee5ab043bace645190ab23fa0980e63
   pullPolicy: IfNotPresent
 strategy:
@@ -17,7 +17,6 @@ envFrom:
   enabled: true
   configMapName: medicojobs-config
   secretName: medicojobs-secrets
-
 env:
   PORT: "5003"
 probes:
