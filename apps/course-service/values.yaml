@@ -3,7 +3,7 @@ namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
 image:
-  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-course-service
+  repository: 194418667391.dkr.ecr.ap-south-1.amazonaws.com/medicojob-course-service
   tag: cb14c0c4d8c3c5d8f125a92577678780908c5ffb
   pullPolicy: IfNotPresent
 strategy:
