@@ -3,7 +3,7 @@ namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
 image:
-  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-api-gateway
+  repository: 194418667391.dkr.ecr.ap-south-1.amazonaws.com/medicojob-api-gateway
   tag: 25018443634b749ba8684ca53be11357c5b39547
   pullPolicy: IfNotPresent
 strategy:
