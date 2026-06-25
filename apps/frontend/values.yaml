@@ -3,7 +3,7 @@ namespace: medicojobs-prod
 replicaCount: 1
 revisionHistoryLimit: 5
 image:
-  repository: 168614391879.dkr.ecr.ap-south-1.amazonaws.com/medicojob-frontend
+  repository: 194418667391.dkr.ecr.ap-south-1.amazonaws.com/medicojob-frontend
   tag: e921ac7a3b91ec47241f6d5fffa5fdeeab5f6413
   pullPolicy: IfNotPresent
 strategy:
