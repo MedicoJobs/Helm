@@ -19,13 +19,13 @@ envFrom:
   secretName: medicojobs-secrets
 env:
   PORT: "5007"
-  AWS_S3_BUCKET: medicojobs-cluster-uploads-168614391879
+  AWS_S3_BUCKET: medicojobs-cluster-uploads-194418667391
   S3_COURSE_VIDEOS_PREFIX: course-videos
 serviceAccount:
   create: true
   name: course-service
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::168614391879:role/medicojobs-cluster-workload-irsa
+    eks.amazonaws.com/role-arn: arn:aws:iam::194418667391:role/medicojobs-cluster-workload-irsa
 probes:
   readiness:
     enabled: true

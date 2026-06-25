@@ -24,7 +24,7 @@ serviceAccount:
   create: true
   name: availability-service
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::168614391879:role/medicojobs-cluster-workload-irsa
+    eks.amazonaws.com/role-arn: arn:aws:iam::194418667391:role/medicojobs-cluster-workload-irsa
 probes:
   readiness:
     enabled: true
